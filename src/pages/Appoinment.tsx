@@ -10,17 +10,22 @@ interface Appointment {
 }
 
 const Appointments = () => {
-    const { data: appointments, refetch } = useQuery<Appointment[]>(
-        ['appointments'],
-        async () => {
+    const { data: appointments, refetch } = useQuery({
+        queryKey: ['appointments'],
+        queryFn: async () => {
             const response = await axios.get('http://localhost:5000/appointments');
             return response.data;
         }
-    );
+    });
+
 
     const handleCancel = async (id: number) => {
-        await axios.delete(`http://localhost:5000/appointments/${id}`);
-        refetch();
+        try {
+            await axios.delete(`http://localhost:5000/appointments/${id}`);
+            refetch();
+        } catch (error) {
+            console.error("Error deleting appointment:", error);
+        }
     };
 
     return (
@@ -34,9 +39,7 @@ const Appointments = () => {
                     >
                         <div>
                             <p className="font-bold">{appointment.name}</p>
-                            <p>
-                                {appointment.date} at {appointment.time}
-                            </p>
+                            <p>{appointment.date} at {appointment.time}</p>
                         </div>
                         <button
                             className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-700"

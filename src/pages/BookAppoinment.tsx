@@ -45,8 +45,7 @@ const BookAppointment = () => {
             <h2 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Book an Appointment</h2>
             <form
                 className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md space-y-8 transform hover:scale-105 transition duration-300 ease-in-out"
-                onSubmit={handleBooking}
-            >
+                onSubmit={handleBooking}>
 
                 <div className="flex flex-col">
                     <label htmlFor="name" className="text-gray-800 text-sm font-medium mb-2">Your Name</label>
@@ -54,7 +53,7 @@ const BookAppointment = () => {
                         type="text"
                         id="name"
                         placeholder="Enter your name"
-                        className="p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md"
+                        className="p-5 text-lg font-semibold border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md h-16"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
@@ -64,41 +63,25 @@ const BookAppointment = () => {
 
                 <div className="flex flex-col">
                     <label htmlFor="contact" className="text-gray-800 text-sm font-medium mb-2">Contact</label>
-                    <input
-                        type="text"
-                        id="contact"
-                        placeholder="Enter your contact"
-                        className="p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md"
-                        value={contact}
-                        onChange={(e) => setContact(e.target.value)}
-                        required
-                    />
+                    <input type="text" id="contact" placeholder="Enter your contact"
+                           className="p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md"
+                           value={contact} onChange={(e) => setContact(e.target.value)} required/>
                 </div>
 
 
                 <div className="flex flex-col">
                     <label htmlFor="date" className="text-gray-800 text-sm font-medium mb-2">Date</label>
-                    <input
-                        type="date"
-                        id="date"
-                        className="p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md"
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                        required
-                    />
+                    <input type="date" id="date"
+                           className="p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md"
+                           value={date} onChange={(e) => setDate(e.target.value)} required/>
                 </div>
 
 
                 <div className="flex flex-col">
                     <label htmlFor="time" className="text-gray-800 text-sm font-medium mb-2">Time</label>
-                    <input
-                        type="time"
-                        id="time"
-                        className="p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md"
-                        value={time}
-                        onChange={(e) => setTime(e.target.value)}
-                        required
-                    />
+                    <input type="time" id="time"
+                           className="p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md"
+                           value={time} onChange={(e) => setTime(e.target.value)} required/>
                 </div>
 
 
@@ -112,11 +95,7 @@ const BookAppointment = () => {
                 )}
 
 
-                <button
-                    type="submit"
-                    className="w-full py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition duration-300 ease-in-out shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    disabled={loading}
-                >
+                <button type="submit" className="w-full py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition duration-300 ease-in-out shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400" disabled={loading}>
                     {loading ? "Booking..." : "Book Appointment"}
                 </button>
             </form>
