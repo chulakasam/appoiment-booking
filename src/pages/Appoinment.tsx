@@ -29,8 +29,8 @@ const Appointments = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <h2 className="text-2xl font-bold mb-4">Your Appointments</h2>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 px-4 py-8 sm:px-8">
+            <h2 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Your Appointments</h2>
             <div className="w-full max-w-md">
                 {appointments?.map((appointment) => (
                     <div
